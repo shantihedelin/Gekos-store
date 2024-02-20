@@ -1,5 +1,6 @@
 import { addToCart, deleteFromCart } from "@/redux/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
+import Link from "next/link";
 
 function Home() {
   const cartProducts = useSelector((state) => state.cart.products);
@@ -65,6 +66,7 @@ function Home() {
             </li>
           ))}
           <p>Total Sum: {total}kr</p>
+          <Link href={"checkout"}>Go to Checkout</Link>
         </ul>
       </div>
     </main>
