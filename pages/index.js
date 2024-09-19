@@ -46,8 +46,9 @@ function Home() {
           property="og:description"
           content="Shop the most expensive products online with Gekos Store."
         ></meta>
-        <meta property="og:image" content="/public/pexels.jpg" ></meta>
-        <meta></meta>
+        <meta property="og:image" content="/pexels.jpg" ></meta>
+        <meta property="og:url" content="https://online-store-redux-zeta.vercel.app/"></meta>
+        <meta property="og:url" content="https://online-store-redux-zeta.vercel.app/checkout"></meta>
       </Head>
       <main>
         <div>

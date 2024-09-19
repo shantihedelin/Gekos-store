@@ -31,7 +31,7 @@ const Sitemap = () => {
       document.body.removeChild(link);
     };
 
-    generateSitemap();
+    // generateSitemap();
   }, []);
 
   return <div>Generating Sitemap...</div>;
