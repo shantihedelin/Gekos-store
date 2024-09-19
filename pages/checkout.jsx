@@ -1,11 +1,12 @@
 import Link from "next/link";
-import Home from ".";
 
 export default function checkout() {
   return (
     <div>
-        <Link href="/">Go back</Link>
+      <Link href="/">Go back</Link>
       <h1>Checkout</h1>
+      <p>Here is your cart</p>
+      <p>Here you can see all the items in your shoppingcart.</p>
     </div>
   );
 }
