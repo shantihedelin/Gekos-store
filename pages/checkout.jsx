@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Head from "next/head";
+import Navbar from "@/components/Navbar";
 
 export default function checkout() {
   return (
@@ -18,7 +19,9 @@ export default function checkout() {
         <meta property="og:description" content="Finish your order at Gekos Store and review your cart." ></meta>
         <meta property="og:image" content="/pexels2.jpg"></meta>
       </Head>
-      <div>
+      
+      <div className="">
+        <Navbar/>
         <Link href="/">Go back</Link>
         <h1>Checkout</h1>
         <p>Here is your cart</p>
