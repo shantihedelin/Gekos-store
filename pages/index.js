@@ -4,6 +4,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from "@/components/Navbar";
 
 function Home() {
   const cartProducts = useSelector((state) => state.cart.products);
@@ -56,7 +57,7 @@ function Home() {
   return (
     <>
       <Head>
-        <title>Gekos Store | Very Expensive products</title>
+        <title>Gekos Store | Best products</title>
         <meta
           name="desciption"
           content="Shop the most expensive product online with Gekos Store. Add items to cart and checkout easily."
@@ -81,22 +82,27 @@ function Home() {
         ></meta>
       </Head>
       <main>
+        <Navbar/>
+        <img className="w-full" src="./hero-img.png"></img>
         <div>
-          <h1>Gekos store</h1>
-          <h2 className="text-base">Very expensive store</h2>
-          <div className="store-container">
-            <ul className="the-store">
+          <div className="">
+            <ul className="p-0 px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:px-16">
               {products.map((product) => (
-                <li key={product.id} className="store">
-                  {product.title} - {product.price}kr &nbsp;
-                  <img src={product.image} className="h-20"></img>
-                  <button
-                    onClick={() => {
-                      handleAddToCart(product);
-                    }}
-                  >
-                    Add to Cart
-                  </button>
+                <li
+                  key={product.id}
+                  className="list-none flex bg-pink-00 m-2 flex-col justify-between"
+                >
+                  <img src={product.image} className="w-full h-48 object-contain"></img>
+                  <div className>
+                    {product.title} <p className="bg-pink-500 p-4">{product.price}kr &nbsp;</p>
+                    <button
+                      onClick={() => {
+                        handleAddToCart(product);
+                      }}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>

@@ -5,20 +5,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(193, 201, 239);
-}
-
-.store {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  margin: 10px;
 }
 
 h1,
@@ -47,11 +34,11 @@ button {
   background-color: rgb(0, 166, 255);
   border: none;
   color: white;
-  padding: 8px 32px;
+  padding: 8px 8px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   margin: 4px 2px;
   cursor: pointer;
 }
