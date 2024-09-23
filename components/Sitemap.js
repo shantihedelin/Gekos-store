@@ -34,7 +34,7 @@ const Sitemap = () => {
     // generateSitemap();
   }, []);
 
-  return <div>Generating Sitemap...</div>;
+//   return <div>Generating Sitemap...</div>;
 };
 
 export default Sitemap;

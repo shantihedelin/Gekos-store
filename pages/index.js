@@ -2,6 +2,8 @@ import { addToCart, deleteFromCart } from "@/redux/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 import Head from "next/head";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Home() {
   const cartProducts = useSelector((state) => state.cart.products);
@@ -12,14 +14,36 @@ function Home() {
     0
   );
 
-  const products = [
-    { id: 1, name: "Banana", price: 1000 },
-    { id: 2, name: "Potato", price: 2000 },
-    { id: 3, name: "Mushroom", price: 3000 },
-    { id: 4, name: "Flowers", price: 4000 },
-    { id: 5, name: "Tesla", price: 5000 },
-    { id: 6, name: "Candy", price: 6000 },
-  ];
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get("https://fakestoreapi.com/products");
+        console.log(response.data);
+        setProducts(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  // const products = [
+  //   { id: 1, name: "Banana", price: 1000 },
+  //   { id: 2, name: "Potato", price: 2000 },
+  //   { id: 3, name: "Mushroom", price: 3000 },
+  //   { id: 4, name: "Flowers", price: 4000 },
+  //   { id: 5, name: "Tesla", price: 5000 },
+  //   { id: 6, name: "Candy", price: 6000 },
+  //   { id: 7, name: "Chair", price: 199 },
+  //   { id: 8, name: "Desk", price: 1299 },
+  //   { id: 9, name: "Table", price: 899 },
+  //   { id: 10, name: "Laptop", price: 1499 },
+  //   { id: 11, name: "Phone", price: 999 },
+  //   { id: 12, name: "Mouse", price: 49 },
+  // ];
 
   function handleAddToCart(product) {
     dispatch(addToCart(product));
@@ -46,9 +70,15 @@ function Home() {
           property="og:description"
           content="Shop the most expensive products online with Gekos Store."
         ></meta>
-        <meta property="og:image" content="/pexels.jpg" ></meta>
-        <meta property="og:url" content="https://online-store-redux-zeta.vercel.app/"></meta>
-        <meta property="og:url" content="https://online-store-redux-zeta.vercel.app/checkout"></meta>
+        <meta property="og:image" content="/pexels.jpg"></meta>
+        <meta
+          property="og:url"
+          content="https://online-store-redux-zeta.vercel.app/"
+        ></meta>
+        <meta
+          property="og:url"
+          content="https://online-store-redux-zeta.vercel.app/checkout"
+        ></meta>
       </Head>
       <main>
         <div>
@@ -58,7 +88,8 @@ function Home() {
             <ul className="the-store">
               {products.map((product) => (
                 <li key={product.id} className="store">
-                  {product.name} - {product.price}kr &nbsp;
+                  {product.title} - {product.price}kr &nbsp;
+                  <img src={product.image} className="h-20"></img>
                   <button
                     onClick={() => {
                       handleAddToCart(product);
