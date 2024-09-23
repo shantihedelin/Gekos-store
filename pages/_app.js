@@ -8,12 +8,6 @@ function App({ Component, pageProps }) {
     <Provider store={store}>
       <Component {...pageProps} />
       <Sitemap />
-      <nav className="bg-purple-500">
-        <p>
-          Created with React Next.js in Visual Studio Code with Redux Toolkit
-        </p>
-        <p>by Shanti Hedelin, Chas Academy</p>
-      </nav>
     </Provider>
   );
 }

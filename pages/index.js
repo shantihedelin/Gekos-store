@@ -5,6 +5,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 function Home() {
   const cartProducts = useSelector((state) => state.cart.products);
@@ -82,26 +83,32 @@ function Home() {
         ></meta>
       </Head>
       <main>
-        <Navbar/>
+        <Navbar />
         <img className="w-full" src="./hero-img.png"></img>
         <div>
           <div className="">
-            <ul className="p-0 px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:px-16">
+            <ul className="p-0 px-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:px-16 lg:mt-32">
               {products.map((product) => (
                 <li
                   key={product.id}
-                  className="list-none flex bg-pink-00 m-2 flex-col justify-between"
+                  className="list-none flex m-2 flex-col justify-between lg:m-8"
                 >
-                  <img src={product.image} className="w-full h-48 object-contain"></img>
+                  <img
+                    src={product.image}
+                    className="w-full h-48 object-contain"
+                  ></img>
                   <div className>
-                    {product.title} <p className="bg-pink-500 p-4">{product.price}kr &nbsp;</p>
-                    <button
-                      onClick={() => {
-                        handleAddToCart(product);
-                      }}
-                    >
-                      Add to Cart
-                    </button>
+                    <p className="p-2">{product.title}</p>
+                    <div className="flex justify-between">
+                      <p className="flex">{product.price}kr &nbsp;</p>{" "}
+                      <button
+                        onClick={() => {
+                          handleAddToCart(product);
+                        }}
+                      >
+                        Add to Cart
+                      </button>
+                    </div>
                   </div>
                 </li>
               ))}
@@ -128,6 +135,7 @@ function Home() {
             <Link href={"checkout"}>Go to Checkout</Link>
           </ul>
         </div>
+        <Footer/>
       </main>
     </>
   );
